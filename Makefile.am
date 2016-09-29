@@ -1,6 +1,6 @@
 bin_PROGRAMS = gfalint
 
-dist_doc_DATA = README.md
+dist_doc_DATA = LICENSE.md README.md
 
 EXTRA_DIST = autogen.sh
 
