@@ -29,7 +29,7 @@ void yyerror(const char *s);
 "$" return '$';
 "*" return '*';
 
-([0-9]+[MX=DIP])+ return CIGAR;
+([0-9]+[MDIP])+ return CIGAR;
 0|[1-9][0-9]* return INTEGER;
 [-+] return ORIENTATION;
 [ABCDGHKMNRSTVWYabcdghkmnrstvwy]+ return SEQUENCE;
