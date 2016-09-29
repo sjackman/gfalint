@@ -20,6 +20,7 @@
 %token <s> ID
 %token <i> INTEGER
 %token <c> ORIENTATION
+%token <i> POSITION
 %token <s> SEQUENCE
 %token <s> TAGGED_FIELD
 
@@ -92,9 +93,9 @@ ordered_set : 'O' '\t' id '\t' ids tagged_fields '\n'
 unordered_set : 'U' '\t' id '\t' ids tagged_fields '\n'
 
 /* An identifier.
- * A string that is a valid CIGAR, integer or sequence is also a valid indentifier.
+ * A string that is a valid CIGAR, integer, position or sequence is also a valid indentifier.
  */
-id : ID | CIGAR | INTEGER | SEQUENCE
+id : ID | CIGAR | INTEGER | POSITION | SEQUENCE
 
 /* An optional identifier. */
 optional_id : '*' | id
@@ -102,8 +103,10 @@ optional_id : '*' | id
 /* A list of identifiers. */
 ids : id | ids ' ' id
 
-/* A position. */
-pos : INTEGER | '$' INTEGER
+/* A position.
+ * An integer is also a valid position.
+ */
+pos : POSITION | INTEGER
 
 /* An optional nucleotide sequence. */
 sequence : '*' | SEQUENCE

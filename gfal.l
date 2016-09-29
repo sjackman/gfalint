@@ -26,12 +26,12 @@ void yyerror(const char *s);
 " " return ' ';
 "\t" return '\t';
 "\n" return '\n';
-"$" return '$';
 "*" return '*';
 
 ([0-9]+[MDIP])+ return CIGAR;
 0|[1-9][0-9]* return INTEGER;
 [-+] return ORIENTATION;
+"$"?(0|[1-9][0-9]*) return POSITION;
 [ABCDGHKMNRSTVWYabcdghkmnrstvwy]+ return SEQUENCE;
 ([A-Z][A-Z]|[a-z][a-z]):[ABHJZif]:[^\t\n]+ return TAGGED_FIELD;
 [!-~]+ return ID;
