@@ -5,7 +5,7 @@ S	3	21	TGCAACGTATAGACTTGTCAC	RC:i:4
 S	4	7	GCATATA
 S	5	8	CGATGATA
 S	6	4	ATGA
-L	*	1	+	2	+	5	5	5M
-L	*	3	+	2	+	0	0	0M
-L	*	3	+	4	-	5	4	1M1D3M
-L	*	4	-	5	+	0	0	0M
+E	*	1	+	2	$5	$0	0	5	5M
+E	*	3	+	2	$0	$0	0	0	0M
+E	*	3	-	4	$5	$0	0	4	1M1D3M
+E	*	4	-	5	$0	$0	0	0	0M

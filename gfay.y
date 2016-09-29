@@ -75,13 +75,7 @@ fragment : 'F' '\t' optional_id '\t' ORIENTATION '\t' id '\t' pos '\t' pos '\t' 
 edge : 'E' '\t' optional_id '\t' id '\t' ORIENTATION '\t' id '\t' pos '\t' pos '\t' pos '\t' pos '\t' alignment tagged_fields '\n'
 
 /* Link record of GFA 1. */
-link1 : 'L' '\t' id '\t' ORIENTATION '\t' id '\t' ORIENTATION '\t' alignment tagged_fields '\n'
-
-/* Link record of GFA 2. */
-link2 : 'L' '\t' optional_id '\t' id '\t' ORIENTATION '\t' id '\t' ORIENTATION '\t' INTEGER '\t' INTEGER '\t' alignment tagged_fields '\n'
-
-/* Link record. */
-link : link1 | link2
+link : 'L' '\t' id '\t' ORIENTATION '\t' id '\t' ORIENTATION '\t' alignment tagged_fields '\n'
 
 /* Gap record. */
 gap : 'G' '\t' optional_id '\t' id '\t' ORIENTATION '\t' id '\t' ORIENTATION '\t' INTEGER '\t' INTEGER tagged_fields '\n'
