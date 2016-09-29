@@ -22,6 +22,7 @@
 %token <i> POSITION
 %token <s> STRING
 %token <s> TAGGED_FIELD
+%token <s> TRACE
 
 %start gfa
 
@@ -105,10 +106,7 @@ pos : POSITION | INTEGER
 sequence : '*' | STRING
 
 /* An optional alignment in CIGAR or trace format. */
-alignment : '*' | trace | CIGAR
-
-/* A trace. */
-trace : INTEGER | trace ',' INTEGER
+alignment : '*' | CIGAR | TRACE
 
 /* Optional tagged fields. */
 tagged_fields : /*empty*/ | tagged_fields '\t' TAGGED_FIELD

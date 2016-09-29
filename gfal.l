@@ -33,6 +33,7 @@ void yyerror(const char *s);
 [-+] return ORIENTATION;
 "$"?(0|[1-9][0-9]*) return POSITION;
 ([A-Z][A-Z]|[a-z][a-z]):[ABHJZif]:[^\t\n]+ return TAGGED_FIELD;
+([1-9][0-9]*:)?[0-9]+(,[0-9]+)+ return TRACE;
 [!-~]+ return STRING;
 
 . {
