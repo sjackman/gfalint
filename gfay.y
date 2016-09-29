@@ -17,11 +17,10 @@
 }
 
 %token <s> CIGAR
-%token <s> ID
 %token <i> INTEGER
 %token <c> ORIENTATION
 %token <i> POSITION
-%token <s> SEQUENCE
+%token <s> STRING
 %token <s> TAGGED_FIELD
 
 %start gfa
@@ -87,9 +86,9 @@ ordered_set : 'O' '\t' id '\t' ids tagged_fields '\n'
 unordered_set : 'U' '\t' id '\t' ids tagged_fields '\n'
 
 /* An identifier.
- * A string that is a valid CIGAR, integer, position or sequence is also a valid indentifier.
+ * A string that is a valid CIGAR, integer or position is also a valid indentifier.
  */
-id : ID | CIGAR | INTEGER | POSITION | SEQUENCE
+id : STRING | CIGAR | INTEGER | POSITION
 
 /* An optional identifier. */
 optional_id : '*' | id
@@ -103,7 +102,7 @@ ids : id | ids ' ' id
 pos : POSITION | INTEGER
 
 /* An optional nucleotide sequence. */
-sequence : '*' | SEQUENCE
+sequence : '*' | STRING
 
 /* An optional alignment in CIGAR or trace format. */
 alignment : '*' | trace | CIGAR

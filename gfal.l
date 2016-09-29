@@ -32,9 +32,8 @@ void yyerror(const char *s);
 0|[1-9][0-9]* return INTEGER;
 [-+] return ORIENTATION;
 "$"?(0|[1-9][0-9]*) return POSITION;
-[ABCDGHKMNRSTVWYabcdghkmnrstvwy]+ return SEQUENCE;
 ([A-Z][A-Z]|[a-z][a-z]):[ABHJZif]:[^\t\n]+ return TAGGED_FIELD;
-[!-~]+ return ID;
+[!-~]+ return STRING;
 
 . {
 	yyerror("Unexpected character");
