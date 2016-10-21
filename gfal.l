@@ -14,7 +14,7 @@ void yyerror(const char *s);
 
 %%
 
-^#.*$ /* Comment */
+^#.*\n /* Comment */
 ^E return 'E';
 ^F return 'F';
 ^G return 'G';
