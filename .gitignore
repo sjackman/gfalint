@@ -5,6 +5,8 @@ compile
 config.h.in
 configure
 depcomp
+gfalint
 install-sh
 missing
+test-driver
 ylwrap
