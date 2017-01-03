@@ -1,4 +1,4 @@
-AC_PREREQ([2.69])
+AC_PREREQ([2.68])
 AC_INIT([gfalint], [0.1.0], [sjackman@gmail.com], [gfalint],
 	[https://github.com/sjackman/gfalint])
 AC_CONFIG_SRCDIR([config.h.in])
