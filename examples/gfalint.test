@@ -1,0 +1,12 @@
+#!/bin/sh
+cd `dirname $0`
+exit_status=0
+for i in *.gfa; do
+	if gfalint <$i; then
+		echo PASS: $i
+	else
+		echo FAIL: $i
+		exit_status=1
+	fi
+done
+exit $exit_status
