@@ -32,7 +32,7 @@ void yyerror(const char *s);
 0|[1-9][0-9]* return INTEGER;
 [-+] return ORIENTATION;
 0|[1-9][0-9]*"$"? return POSITION;
-([A-Z][A-Z]|[a-z][a-z]):[ABHJZif]:[^\t\n]+ return TAGGED_FIELD;
+[A-Za-z0-9][A-Za-z0-9]:[ABHJZif]:[ -~]* return TAGGED_FIELD;
 [0-9]+(,[0-9]+)+ return TRACE;
 [!-~]+ return STRING;
 
