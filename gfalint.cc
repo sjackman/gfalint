@@ -78,7 +78,8 @@ int main(int argc, char** argv)
 		exit(EXIT_FAILURE);
 	}
 
-	yyparse();
+	if (yyparse())
+		exit(EXIT_FAILURE);
 
 	return 0;
 }
