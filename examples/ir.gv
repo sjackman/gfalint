@@ -1,0 +1,5 @@
+digraph {
+rankdir = "LR"
+"A+" -> "X+" -> "B+"
+"A+" -> "X-" -> "B+"
+}
