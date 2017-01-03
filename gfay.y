@@ -17,6 +17,7 @@
 }
 
 %token <s> CIGAR
+%token <s> CIGARS1
 %token <i> INTEGER
 %token <c> ORIENTATION
 %token <i> POSITION
@@ -54,7 +55,7 @@ gfa : records
 
 records : record | records record
 
-record : header | segment | fragment | edge | link | gap | ordered_set | unordered_set
+record : header | segment | fragment | edge | link | gap | ordered_set | unordered_set | path1
 
 /* Header record. */
 header : 'H' tagged_fields '\n'
@@ -86,16 +87,25 @@ ordered_set : 'O' '\t' id '\t' ids tagged_fields '\n'
 /* Unordered set. */
 unordered_set : 'U' '\t' id '\t' ids tagged_fields '\n'
 
+/* Path record of GFA 1. */
+path1 : 'P' '\t' id '\t' ids1 '\t' opt_cigars1 tagged_fields '\n'
+
 /* An identifier.
  * A string that is a valid CIGAR, integer or position is also a valid indentifier.
  */
-id : STRING | CIGAR | INTEGER | POSITION
+id : STRING | CIGAR | CIGARS1 | INTEGER | POSITION
 
 /* An optional identifier. */
 optional_id : '*' | id
 
 /* A list of identifiers. */
 ids : id | ids ' ' id
+
+/* A comma-separated list of identifiers from GFA1. */
+ids1 : id | ids1 ',' id
+
+/* An optional comma-separated list of CIGAR strings from GFA1. */
+opt_cigars1 : '*' | CIGARS1
 
 /* A position.
  * An integer is also a valid position.

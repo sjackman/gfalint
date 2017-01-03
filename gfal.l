@@ -21,6 +21,7 @@ void yyerror(const char *s);
 ^H return 'H';
 ^L return 'L';
 ^O return 'O';
+^P return 'P';
 ^S return 'S';
 ^U return 'U';
 " " return ' ';
@@ -29,6 +30,7 @@ void yyerror(const char *s);
 "*" return '*';
 
 ([0-9]+[MDIP])+ return CIGAR;
+([0-9]+[MDIP])+(,([0-9]+[MDIP])+)+ return CIGARS1;
 0|[1-9][0-9]* return INTEGER;
 [-+] return ORIENTATION;
 0|[1-9][0-9]*"$"? return POSITION;
