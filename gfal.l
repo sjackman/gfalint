@@ -36,6 +36,7 @@ void yyerror(const char *s);
 0|[1-9][0-9]*"$"? return POSITION;
 [A-Za-z0-9][A-Za-z0-9]:[ABHJZif]:[ -~]* return TAGGED_FIELD;
 [0-9]+(,[0-9]+)+ return TRACE;
+[!-~]+[-+] return REF;
 [!-~]+ return STRING;
 
 . {

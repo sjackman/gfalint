@@ -21,6 +21,7 @@
 %token <i> INTEGER
 %token <c> ORIENTATION
 %token <i> POSITION
+%token <s> REF
 %token <s> STRING
 %token <s> TAGGED_FIELD
 %token <s> TRACE
@@ -70,19 +71,19 @@ segment2 : 'S' '\t' id '\t' INTEGER '\t' sequence tagged_fields '\n'
 segment : segment1 | segment2
 
 /* Fragment record. */
-fragment : 'F' '\t' optional_id '\t' ORIENTATION '\t' id '\t' pos '\t' pos '\t' pos '\t' pos '\t' alignment tagged_fields '\n'
+fragment : 'F' '\t' optional_id '\t' REF '\t' pos '\t' pos '\t' pos '\t' pos '\t' alignment tagged_fields '\n'
 
 /* Edge record. */
-edge : 'E' '\t' optional_id '\t' id '\t' ORIENTATION '\t' id '\t' pos '\t' pos '\t' pos '\t' pos '\t' alignment tagged_fields '\n'
+edge : 'E' '\t' optional_id '\t' REF '\t' REF '\t' pos '\t' pos '\t' pos '\t' pos '\t' alignment tagged_fields '\n'
 
 /* Link record of GFA 1. */
 link : 'L' '\t' id '\t' ORIENTATION '\t' id '\t' ORIENTATION '\t' alignment tagged_fields '\n'
 
 /* Gap record. */
-gap : 'G' '\t' optional_id '\t' id '\t' ORIENTATION '\t' id '\t' ORIENTATION '\t' INTEGER '\t' INTEGER tagged_fields '\n'
+gap : 'G' '\t' optional_id '\t' REF '\t' REF '\t' INTEGER '\t' INTEGER tagged_fields '\n'
 
 /* Orderd set. */
-ordered_set : 'O' '\t' id '\t' ids tagged_fields '\n'
+ordered_set : 'O' '\t' id '\t' refs tagged_fields '\n'
 
 /* Unordered set. */
 unordered_set : 'U' '\t' id '\t' ids tagged_fields '\n'
@@ -102,7 +103,10 @@ optional_id : '*' | id
 ids : id | ids ' ' id
 
 /* A comma-separated list of identifiers from GFA1. */
-ids1 : id | ids1 ',' id
+ids1 : REF
+
+/* A list of oriented identifiers. */
+refs : REF | refs ' ' REF
 
 /* An optional comma-separated list of CIGAR strings from GFA1. */
 opt_cigars1 : '*' | CIGARS1
