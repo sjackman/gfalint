@@ -3,7 +3,7 @@ AC_INIT([gfalint], [0.1.0], [sjackman@gmail.com], [gfalint],
 	[https://github.com/sjackman/gfalint])
 AC_CONFIG_SRCDIR([config.h.in])
 AC_CONFIG_HEADERS([config.h])
-AM_INIT_AUTOMAKE([foreign])
+AM_INIT_AUTOMAKE([foreign parallel-tests])
 
 # Checks for programs.
 AC_PROG_CC
