@@ -80,7 +80,7 @@ edge : 'E' '\t' optional_id '\t' REF '\t' REF '\t' pos '\t' pos '\t' pos '\t' po
 link : 'L' '\t' id '\t' ORIENTATION '\t' id '\t' ORIENTATION '\t' alignment tagged_fields '\n'
 
 /* Gap record. */
-gap : 'G' '\t' optional_id '\t' REF '\t' REF '\t' INTEGER '\t' INTEGER tagged_fields '\n'
+gap : 'G' '\t' optional_id '\t' REF '\t' REF '\t' INTEGER '\t' optional_integer tagged_fields '\n'
 
 /* Orderd set. */
 ordered_set : 'O' '\t' id '\t' refs tagged_fields '\n'
@@ -90,6 +90,9 @@ unordered_set : 'U' '\t' id '\t' ids tagged_fields '\n'
 
 /* Path record of GFA 1. */
 path1 : 'P' '\t' id '\t' ids1 '\t' opt_cigars1 tagged_fields '\n'
+
+/* An optional integer. */
+optional_integer : '*' | INTEGER
 
 /* An identifier.
  * A string that is a valid CIGAR, integer or position is also a valid indentifier.
