@@ -31,7 +31,7 @@ void yyerror(const char *s);
 
 ([0-9]+[MDIP])+ return CIGAR;
 ([0-9]+[MDIP])+(,([0-9]+[MDIP])+)+ return CIGARS1;
-0|[1-9][0-9]* return INTEGER;
+0|-?[1-9][0-9]* return INTEGER;
 [-+] return ORIENTATION;
 0|[1-9][0-9]*"$"? return POSITION;
 [A-Za-z0-9][A-Za-z0-9]:[ABHJZif]:[ -~]* return TAGGED_FIELD;
