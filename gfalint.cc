@@ -20,7 +20,7 @@ static const char VERSION_MESSAGE[] =
 PROGRAM " " VERSION "\n"
 "Written by Shaun Jackman.\n"
 "\n"
-"Copyright 2016 Shaun Jackman\n";
+"Copyright 2018 Shaun Jackman\n";
 
 static const char USAGE_MESSAGE[] =
 "Usage: " PROGRAM " FILE\n"
