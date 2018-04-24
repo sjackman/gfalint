@@ -4,7 +4,9 @@
  */
 
 #include "config.h"
+#include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <getopt.h>
 #include <sstream>
 #include <string>
@@ -21,8 +23,9 @@ PROGRAM " " VERSION "\n"
 "Copyright 2016 Shaun Jackman\n";
 
 static const char USAGE_MESSAGE[] =
-"Usage: " PROGRAM " <FILE\n"
+"Usage: " PROGRAM " FILE\n"
 "Check a GFA file for syntax errors.\n"
+"FILE may be a file path or - to read standard input.\n"
 "\n"
 "Options\n"
 "      --help     display this help and exit\n"
@@ -67,7 +70,12 @@ int main(int argc, char** argv)
 		}
 	}
 
-	if (argc - optind > 0) {
+	if (argc - optind == 0) {
+		cerr << PROGRAM ": too few arguments\n";
+		die = true;
+	}
+
+	if (argc - optind > 1) {
 		cerr << PROGRAM ": too many arguments\n";
 		die = true;
 	}
@@ -76,6 +84,17 @@ int main(int argc, char** argv)
 		cerr << "Try `" << PROGRAM
 			<< " --help' for more information.\n";
 		exit(EXIT_FAILURE);
+	}
+
+	if (argc - optind > 0) {
+		const char* path = argv[1];
+		if (strcmp(path, "-") != 0) {
+			FILE* f = freopen(path, "r", stdin);
+			if (f == NULL) {
+				perror(path);
+				exit(EXIT_FAILURE);
+			}
+		}
 	}
 
 	if (yyparse())

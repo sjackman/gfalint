@@ -15,6 +15,6 @@ make
 # Run gfalint
 
 ```
-./gfalint <examples/sample1.gfa
-./gfalint <examples/sample2.gfa
+./gfalint examples/sample1.gfa
+./gfalint examples/sample2.gfa
 ```
