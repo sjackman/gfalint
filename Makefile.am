@@ -21,6 +21,7 @@ GFA_LOG_COMPILER = $(top_srcdir)/test-driver-gfa
 dist_check_SCRIPTS = test-driver-gfa
 TESTS = \
 	examples/big1.gfa \
+	examples/big2.gfa \
 	examples/ir1.gfa \
 	examples/ir2.gfa \
 	examples/sample1.gfa \
